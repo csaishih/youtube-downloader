@@ -1,0 +1,30 @@
+{
+  "name": "youtube-downloader",
+  "version": "1.0.0",
+  "description": "Download Youtube videos",
+  "main": "index.js",
+  "scripts": {
+    "client": "cd client && npm start",
+    "server": "nodemon index.js",
+    "dev": "concurrently --kill-others-on-fail \"npm start\" \"npm run client\"",
+    "start": "node index.js",
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csaishih/youtube-downloader.git"
+  },
+  "author": "csaishih",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/csaishih/youtube-downloader/issues"
+  },
+  "homepage": "https://github.com/csaishih/youtube-downloader#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.3.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "ytdl-core": "^3.3.0"
+  }
+}
