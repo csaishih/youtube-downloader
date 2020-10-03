@@ -99,8 +99,8 @@ app.listen(PORT, () => {
 });
 
 const cleanFileName = (filename) => {
-  let cleanedFilename = filename.replace(/\s+/g, "_").toLowerCase();
-  return cleanedFilename;
+  // [\W_] is the shorthand for [^a-zA-Z0-9]
+  return filename.replace(/[\W_]+/g, "_");
 };
 
 const streamToMP3 = (stream, output) => {

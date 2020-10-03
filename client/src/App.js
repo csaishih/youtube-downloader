@@ -4,13 +4,16 @@ import "./App.css";
 const App = () => {
   const [link, setLink] = useState("");
 
+  const host = "http://192.168.2.12:5000";
+  // const host = "http://localhost:5000"
+
   const onSubmitAudio = useCallback(() => {
     // window.location.href = `http://localhost:5000/download?url=${link}`;
-    window.location.href = `http://localhost:5000/download/audio?url=${link}`;
+    window.location.href = `${host}/download/audio?url=${link}`;
   }, [link]);
 
   const onSubmitVideo = useCallback(() => {
-    window.location.href = `http://localhost:5000/download/video?url=${link}`;
+    window.location.href = `${host}/download/video?url=${link}`;
   }, [link]);
 
   const onChange = useCallback((e) => {
