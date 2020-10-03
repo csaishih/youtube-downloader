@@ -62,36 +62,36 @@ app.get("/test", async (req, res) => {
 //   // res.send({ content: "okay" });
 // });
 
-// app.get("/download/video", async (req, res) => {
-//   const url = req.query.url;
-//   const info = await ytdl.getBasicInfo(url);
-//   const title = cleanFileName(info.videoDetails.title);
-//   res.header("Content-Disposition", `attachment;filename="${title}.mp4"`);
-//   ytdl(url, {
-//     format: "mp4",
-//     quality: "highestvideo",
-//   }).pipe(res);
-// });
-
-app.get("/download/audio", async (req, res) => {
+app.get("/download/video", async (req, res) => {
   const url = req.query.url;
   const info = await ytdl.getInfo(url);
   const title = cleanFileName(info.videoDetails.title);
-  const format = ytdl.chooseFormat(info.formats, {
-    quality: "highestaudio",
-    filter: "audioonly",
-  });
+  const options = {
+    quality: "highestvideo",
+  };
+  const format = ytdl.chooseFormat(info.formats, options);
   res.header(
     "Content-Disposition",
     `attachment;filename="${title}.${format.container}"`
   );
 
-  let audioStream = ytdl.downloadFromInfo(info, {
-    quality: "highestaudio",
-    filter: "audioonly",
-  });
+  ytdl(url, options).pipe(res);
+});
 
-  audioStream.pipe(res);
+app.get("/download/audio", async (req, res) => {
+  const url = req.query.url;
+  const info = await ytdl.getInfo(url);
+  const title = cleanFileName(info.videoDetails.title);
+  const options = {
+    quality: "highestaudio",
+  };
+  const format = ytdl.chooseFormat(info.formats, options);
+  res.header(
+    "Content-Disposition",
+    `attachment;filename="${title}.${format.container}"`
+  );
+
+  ytdl.downloadFromInfo(info, options).pipe(res);
 });
 
 app.listen(PORT, () => {
