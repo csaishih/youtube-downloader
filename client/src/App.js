@@ -4,27 +4,45 @@ import "./App.css";
 const App = () => {
   const [link, setLink] = useState("");
 
-  const onSubmit = useCallback(
-    (e) => {
-      console.log(link);
-      window.location.href = `http://localhost:5000/download?url=${link}`;
-    },
-    [link]
-  );
+  const onSubmit = useCallback(() => {
+    // window.location.href = `http://localhost:5000/download?url=${link}`;
+    window.location.href = `http://localhost:5000/download/audio?url=${link}`;
+  }, [link]);
 
   const onChange = useCallback((e) => {
     setLink(e.target.value);
   }, []);
 
   return (
-    <div>
-      <input
-        type="text"
-        value={link}
-        onChange={onChange}
-        placeholder="YouTube link"
-      />
-      <div onClick={onSubmit}>Download</div>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+      }}
+    >
+      <div>
+        <input
+          style={{ height: "30px", width: "400px" }}
+          type="text"
+          value={link}
+          onChange={onChange}
+          placeholder="YouTube link"
+        />
+        <div
+          style={{
+            border: "1px solid black",
+            marginTop: "5px",
+            padding: "5px",
+            textAlign: "center",
+            cursor: "pointer",
+          }}
+          onClick={onSubmit}
+        >
+          Download
+        </div>
+      </div>
     </div>
   );
 };
