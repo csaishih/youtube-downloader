@@ -7,14 +7,6 @@ const App = () => {
   const host = "http://192.168.2.12:5000";
   // const host = "http://localhost:5000"
 
-  const onSubmitAudio = useCallback(() => {
-    window.location.href = `${host}/download/audio?url=${link}`;
-  }, [link]);
-
-  const onSubmitVideo = useCallback(() => {
-    window.location.href = `${host}/download/video?url=${link}`;
-  }, [link]);
-
   const onSubmitDownload = useCallback(() => {
     window.location.href = `${host}/download?url=${link}`;
   }, [link]);
@@ -40,30 +32,6 @@ const App = () => {
           onChange={onChange}
           placeholder="YouTube link"
         />
-        <div
-          style={{
-            border: "1px solid black",
-            marginTop: "5px",
-            padding: "5px",
-            textAlign: "center",
-            cursor: "pointer",
-          }}
-          onClick={onSubmitAudio}
-        >
-          Download audio
-        </div>
-        <div
-          style={{
-            border: "1px solid black",
-            marginTop: "5px",
-            padding: "5px",
-            textAlign: "center",
-            cursor: "pointer",
-          }}
-          onClick={onSubmitVideo}
-        >
-          Download video
-        </div>
         <div
           style={{
             border: "1px solid black",
