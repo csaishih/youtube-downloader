@@ -1,7 +1,9 @@
 # youtube-downloader
-Download YouTube videos
+
+Download YouTube audio
 
 ## Setup
+
 ```bash
 # Clone the repo
 $ git clone https://github.com/csaishih/youtube-downloader.git
@@ -14,8 +16,8 @@ $ npm install
 ```
 
 ## Running
+
 ```bash
 # Run the client and server
 $ npm run dev
 ```
-
