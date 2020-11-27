@@ -2,8 +2,9 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-color: red;
-  padding: 10px 0px; }
+  background-color: white;
+  padding: 10px 0px;
+  box-shadow: 0px 0px 3px 1px #aaaaaa; }
 
 #search-container {
   display: flex;
@@ -14,28 +15,44 @@
   width: 80vw;
   max-width: 400px;
   padding: 0px 0px 0px 10px;
-  border: 0px; }
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px; }
 
 #search-button {
+  display: flex;
+  border: 1px solid #cccccc;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
   border-left: 0;
-  padding: 5px 8px;
-  text-align: center;
+  padding: 0px 8px;
+  align-items: center;
   cursor: pointer;
-  background: white; }
+  background: white;
+  height: 30px;
+  color: #888888; }
 
 #search-results-container {
   display: flex;
   flex-direction: column;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  padding: 10px; }
 
 .search-result {
   display: flex;
-  flex-direction: "row";
+  flex-direction: row;
   margin-bottom: 5px; }
   .search-result #thumbnail {
-    height: 50px; }
+    height: 100px; }
   .search-result #title {
-    min-width: 400px; }
+    width: 600px; }
+  .search-result #duration {
+    width: 100px; }
+  .search-result #views {
+    width: 100px; }
   .search-result #download {
     cursor: pointer; }
 
@@ -55,5 +72,11 @@ input:focus {
   display: flex;
   flex-direction: column;
   height: 100vh; }
+
+.center {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center; }
 
 /*# sourceMappingURL=index.css.map */

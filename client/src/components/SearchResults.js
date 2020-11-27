@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import SearchWrapper from "./SearchWrapper";
+import Search from "./Search";
 import "../assets/fontawesomepro/fontawesome/all.min.css";
 
 const SearchResults = ({}) => {
@@ -32,19 +32,40 @@ const SearchResults = ({}) => {
 
   return (
     <>
-      <SearchWrapper />
+      <div id="search-wrapper">
+        <Search />
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          height: "50px",
+        }}
+      >
+        <div>Title</div>
+        <div>Views</div>
+        <div>Duration</div>
+        <div>Download</div>
+      </div>
       <div id="search-results-container">
         {results.map((result) => {
           console.log(result);
           return (
             <div key={`result-${result.link}`} className="search-result">
               <img id="thumbnail" src={result.thumbnail} />
-              <div></div>
-              <div id="title">{result.title}</div>
-              <div id="views">{result.views}</div>
-              <div id="duration">{result.duration}</div>
-              <div id="download" onClick={() => download(result.link)}>
-                <i className="far fa-download"></i>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
+              >
+                <div id="title">{result.title}</div>
+                <div id="views">{result.views}</div>
+                <div id="duration">{result.duration}</div>
+                <div id="download" onClick={() => download(result.link)}>
+                  <i className="far fa-download"></i>
+                </div>
               </div>
             </div>
           );

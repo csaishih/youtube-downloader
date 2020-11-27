@@ -17,11 +17,10 @@ app.get("/search", (req, res) => {
   ytsr
     .getFilters(keyword)
     .then((filters) => {
-      const videoFilter = filters.get("Type").find((o) => {
-        return o.name === "Video";
+      const filter = filters.get("Type").find((o) => {
+        return o.label === "Video";
       });
-      console.log(videoFilter.ref);
-      ytsr(null, { limit: searchLimit, nextpageRef: videoFilter.ref })
+      ytsr(filter.query, { limit: searchLimit })
         .then((result) => {
           console.log("sending", result.items.length);
           res.send({ content: result });

@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "../assets/fontawesomepro/fontawesome/all.min.css";
-import SearchResults from "./SearchResults";
 
 const Search = () => {
   const [query, setQuery] = useState("");
   const history = useHistory();
 
   const onSubmit = () => {
-    history.push(`/search?keyword=${query}`);
+    if (query === "") {
+      history.push(`/`);
+    } else {
+      history.push(`/search?keyword=${query}`);
+    }
   };
 
   const onChange = (e) => {

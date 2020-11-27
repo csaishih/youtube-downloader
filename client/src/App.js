@@ -1,7 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import SearchWrapper from "./components/SearchWrapper";
+import Search from "./components/Search";
 import SearchResults from "./components/SearchResults";
+
+const SearchWrapper = () => {
+  return (
+    <div className="center">
+      <Search />
+    </div>
+  );
+};
 
 const App = () => {
   return (
