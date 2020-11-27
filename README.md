@@ -20,4 +20,6 @@ $ npm install
 ```bash
 # Run the client and server
 $ npm run dev
+
+$ Go to localhost:3000 on your browser
 ```
